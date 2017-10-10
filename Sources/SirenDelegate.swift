@@ -36,38 +36,38 @@ import Foundation
 
 // MARK: - SirenDelegate Protocol Extension
 
-public extension SirenDelegate {
-
-    func sirenDidShowUpdateDialog(alertType: Siren.AlertType) {
-        printMessage()
-    }
-
-    func sirenUserDidLaunchAppStore() {
-        printMessage()
-    }
-
-    func sirenUserDidSkipVersion() {
-        printMessage()
-    }
-
-    func sirenUserDidCancel() {
-        printMessage()
-    }
-
-    func sirenDidFailVersionCheck(error: Error) {
-        printMessage()
-    }
-
-    func sirenDidDetectNewVersionWithoutAlert(message: String) {
-        printMessage()
-    }
-
-    func sirenLatestVersionInstalled() {
-        printMessage()
-    }
-
-    private func printMessage(_ function: String = #function) {
-        SirenLog("The default implementation of \(function) is being called. You can ignore this message if you do not care to implement this method in your `SirenDelegate` conforming structure.")
-    }
-
-}
+//public extension SirenDelegate {
+//
+//    func sirenDidShowUpdateDialog(alertType: Siren.AlertType) {
+//        printMessage()
+//    }
+//
+//    func sirenUserDidLaunchAppStore() {
+//        printMessage()
+//    }
+//
+//    func sirenUserDidSkipVersion() {
+//        printMessage()
+//    }
+//
+//    func sirenUserDidCancel() {
+//        printMessage()
+//    }
+//
+//    func sirenDidFailVersionCheck(error: Error) {
+//        printMessage()
+//    }
+//
+//    func sirenDidDetectNewVersionWithoutAlert(message: String) {
+//        printMessage()
+//    }
+//
+//    func sirenLatestVersionInstalled() {
+//        printMessage()
+//    }
+//
+//    private func printMessage(_ function: String = #function) {
+//        SirenLog("The default implementation of \(function) is being called. You can ignore this message if you do not care to implement this method in your `SirenDelegate` conforming structure.")
+//    }
+//
+//}
