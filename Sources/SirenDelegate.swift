@@ -11,7 +11,7 @@ import Foundation
 // MARK: - SirenDelegate Protocol
 
 /// Delegate that handles all codepaths for Siren upon version check completion.
-@objc public protocol SirenDelegate: class {
+@objc public protocol SirenDelegate: NSObjectProtocol {
     /// User presented with update dialog.
     func sirenDidShowUpdateDialog(alertType: Siren.AlertType)
 
