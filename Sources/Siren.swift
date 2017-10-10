@@ -463,7 +463,7 @@ private extension Siren {
 
 public extension Siren {
     /// Determines the type of alert to present after a successful version check has been performed.
-    enum AlertType {
+    @objc enum AlertType: Int {
         /// Forces user to update your app (1 button alert).
         case force
 
