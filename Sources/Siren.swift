@@ -211,7 +211,7 @@ private extension Siren {
         self.currentAppStoreVersion = currentAppStoreVersion
 
         guard isAppStoreVersionNewer() else {
-            delegate?.sirenLatestVersionInstalled()
+            delegate?.sirenLatestVersionInstalled?()
             postError(.noUpdateAvailable)
             return
         }
@@ -290,13 +290,13 @@ private extension Siren {
             alertController.addAction(updateAlertAction())
             alertController.addAction(skipAlertAction())
         case .none:
-            delegate?.sirenDidDetectNewVersionWithoutAlert(message: newVersionMessage)
+            delegate?.sirenDidDetectNewVersionWithoutAlert?(message: newVersionMessage)
         }
 
         if alertType != .none && !alertViewIsVisible {
             alertController.show()
             alertViewIsVisible = true
-            delegate?.sirenDidShowUpdateDialog(alertType: alertType)
+            delegate?.sirenDidShowUpdateDialog?(alertType: alertType)
         }
     }
 
@@ -305,7 +305,7 @@ private extension Siren {
         let action = UIAlertAction(title: title, style: .default) { [unowned self] _ in
             self.hideWindow()
             self.launchAppStore()
-            self.delegate?.sirenUserDidLaunchAppStore()
+            self.delegate?.sirenUserDidLaunchAppStore?()
             self.alertViewIsVisible = false
             return
         }
@@ -317,7 +317,7 @@ private extension Siren {
         let title = localizedNextTimeButtonTitle()
         let action = UIAlertAction(title: title, style: .default) { [unowned self] _  in
             self.hideWindow()
-            self.delegate?.sirenUserDidCancel()
+            self.delegate?.sirenUserDidCancel?()
             self.alertViewIsVisible = false
             return
         }
@@ -335,7 +335,7 @@ private extension Siren {
             }
 
             self.hideWindow()
-            self.delegate?.sirenUserDidSkipVersion()
+            self.delegate?.sirenUserDidSkipVersion?()
             self.alertViewIsVisible = false
             return
         }
@@ -559,7 +559,7 @@ private extension Siren {
 
 private extension Siren {
     func postError(_ error: SirenError.Known) {
-        delegate?.sirenDidFailVersionCheck(error: error)
+        delegate?.sirenDidFailVersionCheck?(error: error)
         printMessage(error.localizedDescription)
     }
 }
